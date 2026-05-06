@@ -18,8 +18,9 @@ function doCalculate() {
 
 function calculate(expr) {
   try {
-    if (/^[0-9+\-*/().%\s]+$/.test(expr)) {
-      const result = eval(expr);
+    if (/^[0-9+\-*/().%\s^]+$/.test(expr)) {
+      const jsExpr = expr.replace(/\^/g, '**');
+      const result = eval(jsExpr);
       return parseFloat(result.toFixed(10)).toString();
     }
     throw new Error('无效的表达式');
