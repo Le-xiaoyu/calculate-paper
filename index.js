@@ -22,9 +22,9 @@ function calculate(expr) {
       const result = eval(expr);
       return parseFloat(result.toFixed(10)).toString();
     }
-    throw new Error('Invalid expression');
+    throw new Error('无效的表达式');
   } catch (e) {
-    return 'Error';
+    return '错误';
   }
 }
 
@@ -42,7 +42,7 @@ function loadHistory() {
   const history = getHistory();
   let html = `
     <div class="calc-item input-line">
-      <input type="text" id="expression" placeholder="Input expression, press Enter" autofocus>
+      <input type="text" id="expression" placeholder="输入表达式，按回车计算" autofocus>
     </div>
   `;
 
@@ -50,7 +50,7 @@ function loadHistory() {
     html += `
       <div class="calc-item">
         <span class="content">${item.expression}  <span class="result">= ${item.result}</span></span>
-        <button class="delete-btn" onclick="deleteHistory(${index})">Delete</button>
+        <button class="delete-btn" onclick="deleteHistory(${index})">删除</button>
       </div>
     `;
   });
